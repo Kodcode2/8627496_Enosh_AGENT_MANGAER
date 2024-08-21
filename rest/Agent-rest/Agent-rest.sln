@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agent-rest", "Agent-rest\Agent-rest.csproj", "{0539CF92-5310-4C01-9572-4585033FDEFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0539CF92-5310-4C01-9572-4585033FDEFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0539CF92-5310-4C01-9572-4585033FDEFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0539CF92-5310-4C01-9572-4585033FDEFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0539CF92-5310-4C01-9572-4585033FDEFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8FC80476-726E-4EC9-B2C3-D35C1EE4205E}
+	EndGlobalSection
+EndGlobal
