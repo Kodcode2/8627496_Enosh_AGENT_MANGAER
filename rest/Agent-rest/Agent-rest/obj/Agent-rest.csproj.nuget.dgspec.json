@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\evyatar 2\\source\\repos\\Agent-exem\\rest\\Agent-rest\\Agent-rest\\Agent-rest.csproj": {}
+    "C:\\Users\\evyatar 2\\Desktop\\Exems\\8627496_Enosh_AGENT_MANGAER\\rest\\Agent-rest\\Agent-rest\\Agent-rest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\evyatar 2\\source\\repos\\Agent-exem\\rest\\Agent-rest\\Agent-rest\\Agent-rest.csproj": {
+    "C:\\Users\\evyatar 2\\Desktop\\Exems\\8627496_Enosh_AGENT_MANGAER\\rest\\Agent-rest\\Agent-rest\\Agent-rest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\evyatar 2\\source\\repos\\Agent-exem\\rest\\Agent-rest\\Agent-rest\\Agent-rest.csproj",
+        "projectUniqueName": "C:\\Users\\evyatar 2\\Desktop\\Exems\\8627496_Enosh_AGENT_MANGAER\\rest\\Agent-rest\\Agent-rest\\Agent-rest.csproj",
         "projectName": "Agent-rest",
-        "projectPath": "C:\\Users\\evyatar 2\\source\\repos\\Agent-exem\\rest\\Agent-rest\\Agent-rest\\Agent-rest.csproj",
+        "projectPath": "C:\\Users\\evyatar 2\\Desktop\\Exems\\8627496_Enosh_AGENT_MANGAER\\rest\\Agent-rest\\Agent-rest\\Agent-rest.csproj",
         "packagesPath": "C:\\Users\\evyatar 2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\evyatar 2\\source\\repos\\Agent-exem\\rest\\Agent-rest\\Agent-rest\\obj\\",
+        "outputPath": "C:\\Users\\evyatar 2\\Desktop\\Exems\\8627496_Enosh_AGENT_MANGAER\\rest\\Agent-rest\\Agent-rest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

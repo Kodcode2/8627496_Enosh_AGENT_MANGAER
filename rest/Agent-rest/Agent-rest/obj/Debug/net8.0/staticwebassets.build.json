@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "itRl1kRoOSJDT/DSJgrfZHiWxKmmnf6oDif7LpayPiA=",
+  "Source": "Agent-rest",
+  "BasePath": "_content/Agent-rest",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
