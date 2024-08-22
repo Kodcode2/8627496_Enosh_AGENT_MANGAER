@@ -2,7 +2,7 @@
 {
     public class TargetPinDto
     {
-        public string x { get; set; }
-        public string y {  get; set; }
+        public int x { get; set; }
+        public int y {  get; set; }
     }
 }

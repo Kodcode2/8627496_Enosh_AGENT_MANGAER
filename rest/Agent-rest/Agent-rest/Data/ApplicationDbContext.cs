@@ -20,14 +20,24 @@ namespace Agent_rest.Data
                 .HasConversion<string>()
                 .IsRequired();
 
+            modelBuilder.Entity<TargetModel>()
+                .Property(x => x.Status)
+                .HasConversion<string>()
+                .IsRequired();
+
             modelBuilder.Entity<MissionModel>()
-                .HasOne(m => m.Agent)
-                .WithMany(a => a.Missions)
-                .HasForeignKey(m => m.AgentId)
+                .Property(x => x.Status)
+                .HasConversion<string>()
+                .IsRequired();
+
+            modelBuilder.Entity<MissionModel>()
+                .HasOne(mission => mission.Agent)
+                .WithMany(agent => agent.OptionalTargets)
+                .HasForeignKey(mission => mission.AgentId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<MissionModel>()
-                .HasOne(m => m.Target)
+                .HasOne(mission => mission.Target)
                 .WithMany()
                 .HasForeignKey(m => m.TargetId);
 

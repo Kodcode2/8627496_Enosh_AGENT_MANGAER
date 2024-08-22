@@ -4,8 +4,8 @@ namespace Agent_rest.Model
 {
     public enum AgentStatus
     {
-        Activ,
-        InActiv
+        Active,
+        InActive
     }
 
 
@@ -13,11 +13,11 @@ namespace Agent_rest.Model
     {
         public int Id { get; set; }
         public string Nickname { get; set; }
-        public byte Image { get; set; }
-        public int Location_X { get; set; }
-        public int Location_Y { get; set; }
-        public AgentStatus Status { get; set; }
+        public string Image { get; set; }
+        public int Location_X { get; set; } = - 1;
+        public int Location_Y { get; set; } = - 1;
+        public AgentStatus Status { get; set; } = AgentStatus.InActive;
 
-        public ICollection<MissionModel>jdj kok 
+        public List<MissionModel> OptionalTargets { get; set; } = [];
     }
 }
