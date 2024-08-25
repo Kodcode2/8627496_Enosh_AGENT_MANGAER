@@ -9,15 +9,19 @@ namespace Agent_rest.Service
 {
     public class AgentService(ApplicationDbContext context) : IAgentService
     {
-        public async Task<List<AgentModel>> GetAgentsAsync() =>
-            await context.Agents.Include(agent => agent.OptionalTargets).ToListAsync();
+        // פונקצייה שמביאה את כל הסוכנים
+        public async Task<List<AgentModel>> GetAllAgentsAsync() =>
+            await context.Agents.ToListAsync();
 
 
+        // פונקצייה שמביאה סוכן ע"פ איי די
         public async Task<AgentModel?> FindAgentByIdAsync(int id) =>
             await context.Agents.Include(agent => agent.OptionalTargets)
             .FirstOrDefaultAsync(agent => agent.Id == id);
 
 
+
+        // פונקצייה שיוצרת סוכן חדש
         public async Task<AgentModel> CreateAgentAsync(AgentDto agent)
         {
             if (agent == null) 
@@ -35,26 +39,41 @@ namespace Agent_rest.Service
 
 
 
-        public async Task<AgentModel> AgentPinAsync(AgentPinDto pinDto, int id)
+        // פונקצייה שיוצרת מיקום לסוכן
+        public async Task<AgentModel> AgentPinAsync(int id, PinDto pinDto)
         {
             if (pinDto == null)
             { throw new Exception("You cannot create an empty pin agent"); }
 
-            var isValid = PinValid(pinDto);
-
-            if (!isValid) { throw new Exception("The new location is out of range"); }
-
             AgentModel? findById = await FindAgentByIdAsync(id);
-            findById.Id = id;
-            findById.Image = findById.Image;
-            findById.Status = findById.Status;
-            findById.Nickname = findById.Nickname;
-            findById.Location_X = pinDto.x;
-            findById.Location_Y = pinDto.y;
+            findById.Location_X = pinDto.X;
+            findById.Location_Y = pinDto.Y;
+
+            var isValid = PinValid(findById);
+            if (!isValid) { throw new Exception("The new location is out of range"); }
             await context.SaveChangesAsync();
             return findById;
         }
 
+
+
+        // פונקצייה שמזיזה את הסוכן
+        public async Task<AgentModel> MoveAgentAsync(int id, MoveDto moveDto)
+        {
+            var agent = await FindAgentByIdAsync(id);
+
+            if (agent.Status == AgentStatus.Active) { throw new Exception("can't be moved Agent in action"); }
+            var move = Move(moveDto);
+
+            agent.Location_X += move.Item1;
+            agent.Location_Y += move.Item2;
+
+            var isValid = PinValid(agent);
+            if (!isValid) { throw new Exception($"cannot be moved foreign agent to the borders the matrix {agent.Location_X}, {agent.Location_Y}"); }
+
+            await context.SaveChangesAsync();
+            return agent;
+        }
 
 
     }

@@ -7,16 +7,19 @@ namespace Agent_rest.Service
 {
     public class TargetService(ApplicationDbContext context) : ITargetService
     {
-        public async Task<TargetModel> GetTargetsAsync(TargetGetDto getDto)
-        {
-            return new TargetModel();
-        }
+        // פונקצייה שמביאה את כל המטרות
+        public async Task<List<TargetModel>> GetAllTargetsAsync() =>
+            await context.Targets.ToListAsync();
 
 
+        // פונקצייה שמביאה מטרה ע"פ איי די 
         public async Task<TargetModel?> GetTargetByIdAsync(int id) =>
             await context.Targets.FirstOrDefaultAsync(target => target.Id == id);
 
 
+
+
+        // פונקצייה שיוצרת מטרה
         public async Task<TargetModel> CreateTargetAsync(TargetDto targetDto)
         {
             if (targetDto == null)

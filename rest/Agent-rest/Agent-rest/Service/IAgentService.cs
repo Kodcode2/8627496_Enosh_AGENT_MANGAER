@@ -5,9 +5,10 @@ namespace Agent_rest.Service
 {
     public interface IAgentService
     {
-        Task<List<AgentModel>> GetAgentsAsync();
+        Task<List<AgentModel>> GetAllAgentsAsync();
         Task<AgentModel?> FindAgentByIdAsync(int id);
         Task<AgentModel> CreateAgentAsync(AgentDto agentDto);
-        Task<AgentModel> AgentPinAsync(AgentPinDto pinDto, int id);
+        Task<AgentModel> AgentPinAsync(int id, PinDto pinDto);
+        Task<AgentModel> MoveAgentAsync(int id, MoveDto moveDto);
     }
 }

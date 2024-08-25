@@ -5,7 +5,7 @@ namespace Agent_rest.Service
 {
     public interface ITargetService
     {
-        Task<TargetModel> GetTargetsAsync(TargetGetDto getDto);
+        Task<List<TargetModel>> GetAllTargetsAsync();
         Task<TargetModel?> GetTargetByIdAsync(int id);
         Task<TargetModel> CreateTargetAsync(TargetDto targetDto);
     }
