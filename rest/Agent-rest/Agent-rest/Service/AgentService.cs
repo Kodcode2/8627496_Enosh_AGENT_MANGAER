@@ -49,7 +49,7 @@ namespace Agent_rest.Service
             findById.Location_X = pinDto.X;
             findById.Location_Y = pinDto.Y;
 
-            var isValid = PinValid(findById);
+            var isValid = AgentPinValid(findById);
             if (!isValid) { throw new Exception("The new location is out of range"); }
             await context.SaveChangesAsync();
             return findById;
@@ -68,13 +68,11 @@ namespace Agent_rest.Service
             agent.Location_X += move.Item1;
             agent.Location_Y += move.Item2;
 
-            var isValid = PinValid(agent);
+            var isValid = AgentPinValid(agent);
             if (!isValid) { throw new Exception($"cannot be moved foreign agent to the borders the matrix {agent.Location_X}, {agent.Location_Y}"); }
 
             await context.SaveChangesAsync();
             return agent;
         }
-
-
     }
 }

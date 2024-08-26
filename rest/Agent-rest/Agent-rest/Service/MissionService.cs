@@ -24,12 +24,12 @@ namespace Agent_rest.Service
 
 
         // פונקציה שבודקת טווח בין סוכן למטרה ואם זה בטווח הנכון היא מוסיפה הצעה לליסט
-        public async Task<List<MissionModel>> MissionProposal()
+        public List<MissionModel> MissionProposal()
         {
-            var agents = await context.Agents.ToListAsync();
-            var targets = await context.Targets.ToListAsync();
+            var agents = context.Agents.ToList();
+            var targets = context.Targets.ToList();
 
-            var rangeCheck = await RangeCheck(agents, targets);
+            var rangeCheck = RangeCheck(agents, targets);
             return rangeCheck;
         }
 
@@ -84,7 +84,7 @@ namespace Agent_rest.Service
 
 
         // utils
-        public async Task<List<MissionModel>> RangeCheck(List<AgentModel> agents, List<TargetModel> targets)
+        public List<MissionModel> RangeCheck(List<AgentModel>? agents, List<TargetModel>? targets)
         {
             foreach (var target in targets)
             {
@@ -101,12 +101,17 @@ namespace Agent_rest.Service
                             Agent = agent,
                             Status = MissionStatus.Proposal,
                         };
-                        context.Missions.Add(mission);
-                        context.SaveChanges();
+                        var isExist = context.Missions.Where(s => s.AgentId == mission.AgentId).Where(s => s.TargetId == mission.TargetId).Any();
+                        if (!isExist)
+                        {
+                            context.Missions.Add(mission);
+                            context.SaveChanges();
+                        }
                     }
                 }
             }
-            return new List<MissionModel>();
+            var miss = context.Missions.ToList();
+            return miss;
         }
 
 

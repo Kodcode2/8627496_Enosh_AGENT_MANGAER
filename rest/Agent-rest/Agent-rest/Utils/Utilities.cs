@@ -17,14 +17,29 @@ namespace Agent_rest.Utils
 
 
 
-        // פונקציה לוודא שמיקום הסוכן או המטרה לא חורגים משטח המטריצה
-        public static bool PinValid(AgentModel agentModel)
+
+        // פונקציה לוודא שמיקום הסוכן לא חורג משטח המטריצה
+        public static bool AgentPinValid(AgentModel agentModel)
         {
             if (agentModel.Location_X > 0 && agentModel.Location_X < 1000
                 && agentModel.Location_Y > 0 && agentModel.Location_Y < 1000)
             { return true; }
             return false;
         }
+
+
+
+
+        // פונקציה לוודא שמיקום המטרה לא חורג משטח המטריצה
+        public static bool TargetPinValid(TargetModel targetModel)
+        {
+            if (targetModel.Location_X > 0 && targetModel.Location_X < 1000
+                && targetModel.Location_Y > 0 && targetModel.Location_Y < 1000)
+            { return true; }
+            return false;
+        }
+
+
 
 
         // פונקציה שממירה את הסטרינג שמתקבל מהיוזר לנמבר

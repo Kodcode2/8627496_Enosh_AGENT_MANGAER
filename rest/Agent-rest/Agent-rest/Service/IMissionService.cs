@@ -6,7 +6,7 @@ namespace Agent_rest.Service
     {
         Task<List<MissionModel>> GetAllMissionsAsync();
         List<MissionModel> GetAllMissionsById(int id);
-        Task<List<MissionModel>> MissionProposal();
+        List<MissionModel> MissionProposal();
         Task<MissionModel> UpdateMissionStatusAsync(int missionId);
         Task<MissionModel> UpdateLocations(int missionId);
     }
