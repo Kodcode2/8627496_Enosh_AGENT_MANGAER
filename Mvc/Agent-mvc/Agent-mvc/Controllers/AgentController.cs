@@ -16,7 +16,7 @@ namespace Agent_mvc.Controllers
             if (result.IsSuccessStatusCode)
             {
                 var content = await result.Content.ReadAsStringAsync();
-                List<MissionVM>? agents = JsonSerializer.Deserialize<List<MissionVM>>(content,
+                List<AgentVM>? agents = JsonSerializer.Deserialize<List<AgentVM>>(content,
                     new JsonSerializerOptions() { PropertyNameCaseInsensitive = true }
                     );
                 return View(agents);

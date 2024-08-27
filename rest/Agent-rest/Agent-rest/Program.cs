@@ -19,6 +19,7 @@ namespace Agent_rest
             builder.Services.AddScoped<IAgentService, AgentService>();
             builder.Services.AddScoped<ITargetService, TargetService>();
             builder.Services.AddScoped<IMissionService, MissionService>();
+            builder.Services.AddScoped<ICalculationsService, CalculationsService>();
             builder.Services.AddSwaggerGen();
 
             //

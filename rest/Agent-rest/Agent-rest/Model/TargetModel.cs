@@ -17,12 +17,3 @@
         public TargetStatus Status { get; set; } = TargetStatus.alive;
     }
 }
-
-
-
-
-// var res = targetservice switch
-//{
-//  _when targetservice.location.Contains("ne") => target.location += 1,
-//  _when targetservice.location.Contains("w") => target.location += 1,
-//}

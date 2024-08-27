@@ -11,12 +11,12 @@ namespace Agent_rest.Controllers
     public class targetsController(ITargetService targetService) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult> Gettargets()
+        public async Task<ActionResult> GetTargets()
         {
             try
             {
-                await targetService.GetAllTargetsAsync();
-                return Ok();
+                var targets = await targetService.GetAllTargetsAsync();
+                return Ok(targets);
             }
             catch (Exception ex)
             {
